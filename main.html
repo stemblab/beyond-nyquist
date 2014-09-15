@@ -1,0 +1,98 @@
+<h2 class="pz_section" id="introduction">
+Introduction    
+</h2>
+
+Various computational aspects of the paper below are reproduced---both
+to substantiate the results and make them easier to reuse.
+
+<!--puzlet_end--> (1)
+
+<h2 class="pz_section" id="introduction">
+Citation    
+</h2>
+Tropp, J.A., Laska, J.N., Duarte, M.F., Romberg, J.K., Baraniuk, R.G., 
+"[http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=5361485&
+isnumber=5361455,Beyond Nyquist: Efficient Sampling of Sparse Bandlimited 
+Signals]," IEEE Transactions on Information Theory, vol.56, no.1, 
+pp.520-544, Jan. 2010. ([http://arxiv.org/abs/0902.0026,arXiv])
+
+<!--puzlet_end--> (25)
+
+<h2 class="pz_section" id="section_IV">
+"IV. Random Demodulator in Matrix Form" 
+</h2>
+
+=== Basic Simulation ===
+
+The following script exercises the various functions that construct the
+matrices from this section. The simulation reconstructs a $K=5$ sparse
+signal from $R=32$ samples, where Nyquist suggests $W=128$ samples.
+
+The input signal has $K$ complex tones with unit magnitude and random 
+phase. The plot shows the complex amplitues of both the input signal and 
+the recovered tones. Because the signal is sparse, most of the
+complex tone amplitudes are zero---as shown by the markers at the origin
+in the plot.
+
+Note: the functions have hidden tests scripts.
+
+<!--puzlet_end--> (26)
+
+<h2 class="pz_section" id="functions">Functions</h2>
+
+<!--puzlet_end--> (17)
+
+<h3 id="permuted_dft_matrix">Permuted DFT Matrix</h3>
+
+The permuted DFT matrix is given by
+
+$$
+F=\frac{1}{\sqrt{W}} \left[ e^{-2\pi i n \omega /W} \right]_{n,\omega}
+$$
+
+where $n=0,1, ..., W-1$ and
+
+$$
+\omega = 0,\pm 1,...,\pm \left( \frac{W}{2}-1\right), \frac{W}{2}
+$$
+
+<!--puzlet_end--> (14)
+
+<h3 id="chipping_matrix">Chipping Matrix</h3>
+
+Let $\{\varepsilon_0,...,\varepsilon_{W-1}\}$ be the __chipping sequence__, with values of 
+$\pm1$. The __chipping matrix__ is then 
+
+$$
+D=
+\begin{bmatrix}
+\varepsilon_0 \\
+& \varepsilon_1 \\
+& & \ddots \\
+& & & \varepsilon_{W-1}
+\end{bmatrix}
+$$
+
+<!--puzlet_end--> (3)
+
+<h3 id="accumulate_and_dump_matrix">Accumulate & Dump Matrix</h3>
+
+Assume assume R divides W --- for example $R=3$, $W=12$. Then
+
+$$
+H=
+\begin{bmatrix}
+1 & 1 & 1 & 1 \\
+  &   &   &   & 1 & 1 & 1 & 1 \\
+  &   &   &   &   &   &   &   & 1 & 1 & 1 & 1 \\
+\end{bmatrix}
+$$
+
+<!--puzlet_end--> (10)
+
+<h3 id="amplitude_vector">Amplitude Vector</h3>
+
+Assume $|s|=1$ with $\arg(s)$ uniformly distributed.
+
+<!--puzlet_end--> (12)
+
