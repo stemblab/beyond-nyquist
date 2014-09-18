@@ -1,0 +1,9 @@
+[
+    "./octave/main.m",
+    "./octave/perm_dftmtx.m",
+    "./octave/chipping_matrix.m",
+    "./octave/acc_dump_matrix.m",
+    "./octave/amplitude_vector.m",
+    "main.css",
+    "main.html"
+]

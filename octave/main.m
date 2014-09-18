@@ -1,3 +1,5 @@
+resources
+
 % parameters 
 K = 5;
 R = 32;
@@ -16,7 +18,7 @@ Phi = M*F; % overall system matrix
 % output = system * input
 y = Phi*s;
 
-% <a href="/?id=b007h">reconstruction</a?
+% <a href="TBD">reconstruction</a>
 [x,k,epsilon]=irls(Phi,y);
 
 % plot input and recovered signal
@@ -29,5 +31,4 @@ xlabel('real')
 ylabel('imaginary')
 axis('square')
 
-%!end (19)
-
+print -dsvg main.svg
