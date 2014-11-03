@@ -18,5 +18,3 @@ end
 % compare
 abs(sum(sum(F-Fcheck)))
 
-%!end (7)
-
